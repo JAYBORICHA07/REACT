@@ -221,3 +221,106 @@ const CurrentDate = (props) => {
     }
   };
 // ------------------------------------------------------------------------------------
+const List = props => {
+  return <p>{props.tasks.join(", ")}</p>;
+};
+class ToDo extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h1>To Do Lists</h1>
+        <h2>Today</h2>
+        <List tasks={["DS", "DBMS", "DF"]} />
+        <h2>Tomorrow</h2>
+        <List tasks={["PAS", "ETC", "IC"]} />
+      </div>
+    );
+  }
+}
+// ------------------------------------------------------------------------------------
+const ShoppingCart = (props) => {
+  return (
+    <div>
+      <h1>Shopping Cart Component</h1>
+    </div>
+  )
+};
+// Change code below this line
+
+ShoppingCart.defaultProps = { items: 0 }
+// ------------------------------------------------------------------------------------
+const Items = (props) => {
+  return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+}
+
+Items.defaultProps = {
+  quantity: 0
+}
+
+class ShoppingCart extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    { /* Change code below this line */ }
+    return <Items quantity={10}/>
+    { /* Change code above this line */ }
+  }
+};
+// ------------------------------------------------------------------------------------
+const Items = (props) => {
+  return <h1>Current Quantity of Items in Cart: {props.quantity}</h1>
+};
+
+// Change code below this line
+Items.propTypes = {quantity: PropTypes.number.isRequired};
+// Change code above this line
+
+Items.defaultProps = {
+  quantity: 0
+};
+
+class ShoppingCart extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <Items />
+  }
+};
+// ------------------------------------------------------------------------------------
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
+  render() {
+    return (
+        <div>
+            { /* Change code below this line */ }
+            <Welcome name="Jay"/>
+            { /* Change code above this line */ }
+        </div>
+    );
+  }
+};
+
+class Welcome extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
+  render() {
+    return (
+        <div>
+          { /* Change code below this line */ }
+          <p>Hello, <strong>{this.props.name}</strong>!</p>
+          { /* Change code above this line */ }
+        </div>
+    );
+  }
+};
+// ------------------------------------------------------------------------------------
