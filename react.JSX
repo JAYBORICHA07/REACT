@@ -532,3 +532,200 @@ class Counter extends React.Component {
   }
 };
 // ------------------------------------------------------------------------------------
+class ControlledInput extends React.Component {
+
+  constructor(props) {
+
+    super(props);
+
+    this.state = {
+
+      input: ''
+
+    };
+
+    // Change code below this line
+
+    this.handleChange = this.handleChange.bind(this);
+
+    // Change code above this line
+
+  }
+
+  // Change code below this line
+
+  handleChange (event) {
+
+    this.setState({
+
+      input: event.target.value
+
+    })
+
+  }
+
+  // Change code above this line
+
+  render() {
+
+    return (
+
+      <div>
+
+        { /* Change code below this line */}
+
+        <input value={this.state.input} onChange={this.handleChange} />
+
+        { /* Change code above this line */}
+
+        <h4>Controlled Input:</h4>
+
+        <p>{this.state.input}</p>
+
+      </div>
+
+    );
+
+  }
+
+};
+// ------------------------------------------------------------------------------------
+class MyForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      input: '',
+      submit: ''
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleChange(event) {
+    this.setState({
+      input: event.target.value
+    });
+  }
+  handleSubmit(event) {
+    event.preventDefault()
+    this.setState({
+      submit: this.state.input
+    });
+  }
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            value={this.state.input}
+            onChange={this.handleChange} />
+          <button type='submit'>Submit!</button>
+        </form>
+        <h1>{this.state.submit}</h1>
+      </div>
+    );
+  }
+};
+// ------------------------------------------------------------------------------------
+class MyApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "Jay"
+    };
+  }
+  render() {
+    return (
+      <div>
+
+        <Navbar name={this.state.name} />
+      </div>
+    );
+  }
+}
+
+class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+
+        component above
+        from state
+        <h1>Hello, my name is: {this.props.name}</h1>
+      </div>
+    );
+  }
+}
+// ------------------------------------------------------------------------------------
+class MyApp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputValue: ''
+    }
+  this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event) {
+    this.setState({
+      inputValue: event.target.value
+    });
+  }
+  render() {
+    return (
+       <div>
+         <GetInput
+           input={this.state.inputValue}
+           handleChange={this.handleChange}/>
+         <RenderInput
+           input={this.state.inputValue}/>
+       </div>
+    );
+  }
+};
+
+class GetInput extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h3>Get Input:</h3>
+        <input
+          value={this.props.input}
+          onChange={this.props.handleChange}/>
+      </div>
+    );
+  }
+};
+
+class RenderInput extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+        <h3>Input Render:</h3>
+        <p>{this.props.input}</p>
+      </div>
+    );
+  }
+};
+// ------------------------------------------------------------------------------------
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  componentWillMount() {
+    // Change code below this line
+  console.log('Component being mounted');
+    // Change code above this line
+  }
+  render() {
+    return <div />
+  }
+};
+// ------------------------------------------------------------------------------------
